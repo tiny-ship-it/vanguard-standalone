@@ -1,0 +1,24 @@
+{
+  "name": "first-tiny-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/bridge/main.ts"
+  },
+  "dependencies": {
+    "ai": "^4.0.0",
+    "@ai-sdk/google": "latest",
+    "livekit-server-sdk": "latest",
+    "@livekit/agents": "latest",
+    "@livekit/agents-plugin-google": "latest",
+    "zod": "latest",
+    "dotenv": "latest",
+    "axios": "latest"
+  },
+  "devDependencies": {
+    "tsx": "latest",
+    "typescript": "latest",
+    "@types/node": "^24.0.0"
+  }
+}
