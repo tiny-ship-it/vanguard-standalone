@@ -1,0 +1,19 @@
+{
+  "name": "@vanguard/engine",
+  "version": "1.0.0",
+  "description": "Standalone enterprise agent substrate",
+  "main": "lib/core/engine.js",
+  "scripts": {
+    "start": "node scripts/slack-bridge.js",
+    "test": "node harness/vanguard-eval.sh",
+    "init": "node scripts/vanguard-up.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.11.1",
+    "@virtuals-protocol/acp-node": "^1.0.0",
+    "axios": "^1.6.7"
+  },
+  "author": "TinyWins",
+  "license": "Proprietary"
+}
