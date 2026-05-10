@@ -5,7 +5,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  * Pulls historical Pull Request diffs and review comments from the
  * various repos and stages them in GCS for
- * fine-tuning the Metropolis "Hands" model.
+ * fine-tuning the Vanguard "Hands" model.
  *
  * Output GCS layout:
  *   gs://tinywins-knowledge-graph/raw/github/<org>/<repo>/prs/<pr_number>/
@@ -21,7 +21,7 @@
  * USAGE:
  *   node scripts/github-pr-extractor.js [--dry-run] [--since 2024-01-01]
  *
- * METROPOLIS TARGET: Hands (Creative Direction → Code Diff dataset)
+ * VANGUARD TARGET: Hands (Creative Direction → Code Diff dataset)
  * SATURDAY SCOPE: MVP – all merged PRs since 2024-01-01, no branch filtering.
  */
 
@@ -61,7 +61,7 @@ function ghGet(path, extraHeaders = {}) {
         Authorization: `Bearer ${GITHUB_TOKEN}`,
         Accept: 'application/vnd.github+json',
         'X-GitHub-Api-Version': '2022-11-28',
-        'User-Agent': 'tinywins-metropolis/1.0',
+        'User-Agent': 'vanguard-engine/1.0',
         ...extraHeaders,
       },
     };

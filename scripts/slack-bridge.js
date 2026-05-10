@@ -12,12 +12,12 @@ const app = new App({
   port: process.env.CORE_PORT || 3001
 });
 
-// Assistant Core Routing
+// Vanguard Routing
 app.message(async ({ message, client, say }) => {
   // Ignore bot messages and sub-type messages (like join/leave)
   if (message.bot_id || message.subtype) return;
 
-  console.log(`[Assistant Core Bridge] Routing message from ${message.user} via Slack...`);
+  console.log(`[Vanguard Bridge] Routing message from ${message.user} via Slack...`);
 
   try {
     const result = await bridge.handleMessage(message);
@@ -27,11 +27,11 @@ app.message(async ({ message, client, say }) => {
       thread_ts: message.thread_ts || message.ts
     });
   } catch (err) {
-    console.error(`[Assistant Core Bridge] Error:`, err);
+    console.error(`[Vanguard Bridge] Error:`, err);
   }
 });
 
 (async () => {
   await app.start();
-  console.log('🏗️ Assistant Core Slack Bridge is active (Socket Mode).');
+  console.log('🏗️ Vanguard Slack Bridge is active (Socket Mode).');
 })();

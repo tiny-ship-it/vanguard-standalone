@@ -15,7 +15,7 @@
  * USAGE:
  *   node scripts/figma-frame-scraper.js [--dry-run]
  *
- * METROPOLIS TARGET: Hands (Design-to-Code dataset)
+ * VANGUARD TARGET: Hands (Design-to-Code dataset)
  * SATURDAY SCOPE: MVP – download top-level frames only; no tree recursion.
  */
 
@@ -29,7 +29,7 @@ const fs = require('fs');
 const os = require('os');
 
 // ─── Config ──────────────────────────────────────────────────────────────────
-// Postgres (joi-metropolis-archive) — replaces local SQLite brain-state.db
+// Postgres (vanguard-archive) — replaces local SQLite brain-state.db
 const _joiEnvContent = fs.readFileSync(path.resolve(__dirname, '../.env.joi'), 'utf8');
 const _joiEnv = {};
 _joiEnvContent.split('\n').forEach(line => {
@@ -137,9 +137,9 @@ async function main() {
     process.exit(1);
   }
 
-  log('INFO', 'Starting Figma Frame Scraper', { dry_run: DRY_RUN, db: 'joi-metropolis-archive' });
+  log('INFO', 'Starting Figma Frame Scraper', { dry_run: DRY_RUN, db: 'vanguard-archive' });
 
-  // 1. Read asset rows with Figma keys from Postgres (joi-metropolis-archive)
+  // 1. Read asset rows with Figma keys from Postgres (vanguard-archive)
   const pgClient = await _pgPool.connect();
   let rows;
   try {
