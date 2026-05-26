@@ -1,0 +1,8 @@
+node_modules/
+memory/
+traces/
+.env
+.secrets/
+*.log
+package-lock.json
+harness/traces/

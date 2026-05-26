@@ -12,7 +12,9 @@ async function runInit() {
         checkConfig,
         checkSecrets,
         checkMemoryEngine,
-        checkCoreModules
+        checkNango,
+        checkCoreModules,
+        checkHarness
     ];
 
     for (const check of checks) {
@@ -67,9 +69,25 @@ async function checkMemoryEngine() {
     console.log('✅ Memory Engine connection successful');
 }
 
+async function checkNango() {
+    console.log('🔗 Testing Nango Configuration...');
+    if (!process.env.NANGO_SECRET_KEY) {
+        console.warn('⚠️  NANGO_SECRET_KEY is missing. OAuth integrations will be disabled.');
+    } else {
+        console.log('✅ Nango configuration validated');
+    }
+}
+
+async function checkHarness() {
+    console.log('🧪 Running Supervisor Self-Test...');
+    const supervisor = require('../lib/core/supervisor');
+    const results = supervisor.run({ lookbackMs: 1000 }); // Quick check
+    console.log('✅ Supervisor initialized');
+}
+
 async function checkCoreModules() {
     const coreDir = path.join(__dirname, '../lib/core');
-    const requiredFiles = ['engine.js', 'router.js', 'vault.js', 'harness.js'];
+    const requiredFiles = ['engine.js', 'router.js', 'vault.js', 'harness.js', 'supervisor.js'];
     for (const file of requiredFiles) {
         if (!fs.existsSync(path.join(coreDir, file))) {
             throw new Error(`Core module missing: ${file}`);

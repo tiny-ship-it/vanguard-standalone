@@ -8,6 +8,10 @@ Automated evaluation of Vanguard agent traces using an LLM-as-a-judge (Garry Tan
 - `judge.js`: Node.js script using AI SDK to perform the evaluation.
 - `vanguard-eval.sh`: CLI wrapper.
 - `traces/`: Directory for input traces.
+- `traces/nango-integration.json`: Trace for Nango connector linking connectionId to tenantId.
+
+## Connectors
+- **Nango**: Enterprise integrations via Nango SDK. connectionId is linked to Vanguard tenantId (Memory Engine UUID).
 
 ## Usage
 ```bash
