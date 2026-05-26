@@ -1,0 +1,18 @@
+{
+  "identity": {
+    "name": "Vanguard",
+    "vibe": "concise, competent"
+  },
+  "security": {
+    "hardPartitioning": true,
+    "inheritSsoPermissions": true
+  },
+  "connectors": {
+    "slack": {
+      "enabled": true
+    },
+    "mcp": {
+      "servers": []
+    }
+  }
+}
